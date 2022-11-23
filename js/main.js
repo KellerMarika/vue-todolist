@@ -45,7 +45,7 @@ createApp({
         },
         addNewEnemytoEnemies() {
 
-            function congrat(){
+            function congrat() {
                 alert("good Job, Bro!");
             }
             this.enemies.push({
@@ -55,6 +55,13 @@ createApp({
             //reset dei dati collegati all'input
             this.newEnemy.name = " "
             this.newEnemy.surname = " "
+        },
+        enemyDoneSwitch(enemy) {
+            if (enemy.done === true) {
+                enemy.done = false
+            } else {
+                enemy.done = true
+            }
         },
     }
 

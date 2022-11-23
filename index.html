@@ -63,8 +63,9 @@
                                     <input class="form-check-input me-3" type="checkbox" role="switch"
                                         v-model="enemy.done">
                                     <!-- testo -->
-                                    <div class="complete-name flex-fill text-capitalize"
-                                        :class="enemy.done ? 'text-decoration-line-through':'text-danger'">
+                                    <div  class="complete-name flex-fill text-capitalize"
+                                        :class="enemy.done ? 'text-decoration-line-through':'text-danger'"
+                                        @click="enemyDoneSwitch(enemy)">
                                         {{`${enemy.name} ${enemy.surname}`}}</div>
                                     <!-- cestino -->
                                     <button class="btn btn-sm btn-dark" @click="deleteEnemyOnBtnClick(i)"><i
