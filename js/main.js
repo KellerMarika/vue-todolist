@@ -26,7 +26,7 @@ createApp({
                 },
 
             ],
-            newTaskData: {
+            newEnemy: {
                 name: "",
                 surname: "",
                 done: false,
@@ -39,11 +39,23 @@ createApp({
         deleteEnemyOnBtnClick(enemyIndex) {
 
             const eliminationConfirmed = confirm("hai controllato le pulsazioni?");
-            if ( eliminationConfirmed) {
+            if (eliminationConfirmed) {
                 this.enemies.splice(enemyIndex, 1);//modifica l'array originale
             }
-        }
+        },
+        addNewEnemytoEnemies() {
 
+            function congrat(){
+                alert("good Job, Bro!");
+            }
+            this.enemies.push({
+                ...this.newEnemy,
+                done: false,
+            });
+            //reset dei dati collegati all'input
+            this.newEnemy.name = " "
+            this.newEnemy.surname = " "
+        },
     }
 
 }).mount("#app")
