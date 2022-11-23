@@ -36,6 +36,14 @@ createApp({
     },
     methods: {
 
+        deleteEnemyOnBtnClick(enemyIndex) {
+
+            const eliminationConfirmed = confirm("hai controllato le pulsazioni?");
+            if ( eliminationConfirmed) {
+                this.enemies.splice(enemyIndex, 1);//modifica l'array originale
+            }
+        }
+
     }
 
 }).mount("#app")

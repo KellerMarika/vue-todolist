@@ -51,7 +51,7 @@
                                     <div class="complete-name flex-fill text-capitalize" 
                                     :class="enemy.done ? 'text-decoration-line-through':'text-danger'">{{`${enemy.name} ${enemy.surname}`}}</div>
                                     <!-- cestino -->
-                                    <button class="btn btn-sm btn-dark"><i class="fa-solid fa-skull-crossbones"></i></button>
+                                    <button class="btn btn-sm btn-dark" @click="deleteEnemyOnBtnClick(i)"><i class="fa-solid fa-skull-crossbones"></i></button>
                                 </li>
 
                             </ul>
