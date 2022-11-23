@@ -48,7 +48,8 @@
                                     <!-- done -->
                                     <input class="form-check-input me-3" type="checkbox" role="switch"v-model="enemy.done">
                                     <!-- testo -->
-                                    <div class="complete-name flex-fill">{{`${enemy.name} ${enemy.surname}`}}</div>
+                                    <div class="complete-name flex-fill text-capitalize" 
+                                    :class="enemy.done ? 'text-decoration-line-through':'text-danger'">{{`${enemy.name} ${enemy.surname}`}}</div>
                                     <!-- cestino -->
                                     <button class="btn btn-sm btn-dark"><i class="fa-solid fa-skull-crossbones"></i></button>
                                 </li>
