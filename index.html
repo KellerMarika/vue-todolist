@@ -36,6 +36,30 @@
 <body>
     <div id="app">
 
+        <section>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-6">
+
+                        <div id="enemies-list-container">
+                            <ul class="enemies list-group">
+                                <!-- ciclo -->
+                                <li class="enemy list-group-item d-flex" v-for="(enemy,i) in enemies">
+                                    <!-- done -->
+                                    <input class="form-check-input me-3" type="checkbox" role="switch"v-model="enemy.done">
+                                    <!-- testo -->
+                                    <div class="complete-name flex-fill">{{`${enemy.name} ${enemy.surname}`}}</div>
+                                    <!-- cestino -->
+                                    <button class="btn btn-sm btn-dark"><i class="fa-solid fa-skull-crossbones"></i></button>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
 
