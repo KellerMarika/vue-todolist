@@ -3,7 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            timer: "",
+            newEnemy_Interval: "",
             enemies: [
                 {
                     name: "pippo",
@@ -34,6 +34,7 @@ createApp({
                 surname: "",
                 deathTimer: "",
                 deathType: "",
+                done:"",
             },
 
         };
@@ -42,12 +43,12 @@ createApp({
 
         deleteEnemyOnBtnClick(enemyIndex) {
 
-            const eliminationConfirmed = confirm("hai controllato le pulsazioni?");
+            const eliminationConfirmed = confirm("did you check his pulse?");
             if (eliminationConfirmed) {
                 this.enemies.splice(enemyIndex, 1);//modifica l'array originale
             }
         },
-       
+
         enemyDoneSwitch(enemy) {
             if (enemy.done === true) {
                 enemy.done = false
@@ -55,49 +56,81 @@ createApp({
                 enemy.done = true
             }
         },
-
-        startDeathTimer(enemy){
-            //se non è vuoto  allora timer è uguale al valore della proprietà death timer
-            if (this.newEnemy.deathTimer !== "") {
-                this.timer = parseInt(this.newEnemy.deathTimer);
-            }
-
-            setInterval(() => {
-
-                if (this.newEnemy.deathTimer === "") {
-                    this.newEnemy.done = true
-                    console.log(this.timer ,"in if")
-                } else {
-                    // conto alla rovescia
-                    timer--;
-                    console.log(this.timer, "in else")
-                    //fermo il timer prima che vada in negaticovado in negativo
-                    if (timer <= 0) {
-                        stopTimer();
-                        return;
+        /* ******************************************************** */
+        /*         startDeathTimer(enemy) {
+                    //se non è vuoto  allora timer è uguale al valore della proprietà death timer
+                    if (this.newEnemy.deathTimer !== "") {
+                        this.timer = parseInt(this.newEnemy.deathTimer);
                     }
-                }
-                
-                console.log("timer fuori", this.timer);
-            }, 1000);
+        
+                    setInterval(() => {
+        
+                        if (this.newEnemy.deathTimer === "") {
+                            this.newEnemy.done = true
+                            console.log(this.timer, "in if")
+                        } else {
+                            // conto alla rovescia
+        
+                            console.log(this.timer, "in else")
+                            //fermo il timer prima che vada in negaticovado in negativo
+                            if (timer <= 0) {
+                                stopTimer();
+                                return;
+                            }
+                        }
+        
+                    }, 1000);
+                },
+         */
+
+        checkDeathTimer(enemy) {
+
+            if (this.newEnemy.deathTimer === "") {
+                this.newEnemy.done = true
+                console.log(this.newEnemy.deathTimer, "se non scrive niente è già stecchito");
+                return
+
+            } else {
+                this.newEnemy.deathTimer = parseInt(this.newEnemy.deathTimer, "se non è vuoto faccio parseint");
+                console.log(this.newEnemy.deathTimer);
+                this.newEnemy.done =false
+                //invoco la funzione su cui devo settare il timer
+                this.startDeathTimer()
+            }
         },
 
+        startDeathTimer(enemy) {
+            this.newEnemy.deathTimer--
+            console.log(this.newEnemy.deathTimer, "devo impostare il timer");
+
+
+            if (this.newEnemy.deathTimer === 0) {
+                console.log(this.newEnemy.deathTimer, "è deceduto, devo fermare il timer");
+                //clearInterval(newEnemy_Interval);
+                this.newEnemy.done = true
+                clearInterval(newEnemy_Interval);
+            }
+        },
+        /* ****************************************************** */
         addNewEnemytoEnemies() {
+
+            this.checkDeathTimer()
 
             this.enemies.push({
                 ...this.newEnemy,
-                done: false,
             });
             //reset dei dati collegati all'input
             this.newEnemy.name = " "
             this.newEnemy.surname = " "
             this.newEnemy.deathTimer = ""
             this.newEnemy.deathType = ""
-
-            //invoco la funzione?____________________________
-           this.startDeathTimer()
         },
+    },
+    mounted() {
+
+     /*   newEnemy_Interval = setInterval(startDeathTimer(), 1000);  */
     }
+
 
 
 }).mount("#app")
