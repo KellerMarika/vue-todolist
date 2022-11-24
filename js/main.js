@@ -58,7 +58,7 @@ createApp({
         },
         /* ******************************************************** */
         /*         startDeathTimer(enemy) {
-                    //se non è vuoto  allora timer è uguale al valore della proprietà death timer
+
                     if (this.newEnemy.deathTimer !== "") {
                         this.timer = parseInt(this.newEnemy.deathTimer);
                     }
@@ -103,16 +103,20 @@ createApp({
             this.newEnemy.deathTimer--
             console.log(this.newEnemy.deathTimer, "devo impostare il timer");
 
-
             if (this.newEnemy.deathTimer === 0) {
                 console.log(this.newEnemy.deathTimer, "è deceduto, devo fermare il timer");
-                //clearInterval(newEnemy_Interval);
                 this.newEnemy.done = true
-                clearInterval(newEnemy_Interval);
+                clearInterval(this.newEnemy_Interval);
+                this.newEnemy.deathTimer = ""
+                return
             }
         },
         /* ****************************************************** */
         addNewEnemytoEnemies() {
+            
+            if (this.newEnemy.deathType===""){
+                this.newEnemy.deathType="cagotto fulinante"
+            }
 
             this.checkDeathTimer()
 
@@ -127,8 +131,7 @@ createApp({
         },
     },
     mounted() {
-
-     /*   newEnemy_Interval = setInterval(startDeathTimer(), 1000);  */
+       newEnemy_Interval = setInterval(this.startDeathTimer(), 1000);  
     }
 
 
