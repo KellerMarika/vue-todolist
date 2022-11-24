@@ -4,12 +4,19 @@
 body {
     font-family: 'Special Elite', cursive;
     background-image: url(../img/bg1.png);
-    background-repeat: no-repeat;  
-    background-size: cover;  
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
 input,
 li {
     font-family: 'Homemade Apple', cursive;
+}
+
+li .deth-timer,
+li .deth-type{
+    font-size: .8rem;
+    font-family: 'Special Elite', cursive;
 }
 
 .row {
@@ -58,8 +65,6 @@ li {
     font-size: 1rem;
     border-bottom: 1px dashed rgba(95, 91, 79, 0.233);
     display: block;
-
-
 }
 
 .my-form-control {

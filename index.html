@@ -43,7 +43,7 @@
     <div id="app">
 
         <section>
-            <div id="main-container"class="container ">
+            <div id="main-container" class="container ">
                 <div class="row position-relative">
                     <img id="death-note-bg" src="img/deathnote.png" class="position-absolute">
                     <div id="death-note-content" class="col-3 offset-1 ">
@@ -53,16 +53,26 @@
                             <h1 class="fs-3">who will be your next victim?</h1>
 
                             <div class="my-input-group text-end">
+
                                 <label for="name" class="my-label text-start">name:
                                     <input id="name" type="text" class="my-form-control" name="name"
                                         v-model="newEnemy.name">
                                 </label>
 
-                                <label for="name" class="my-label text-start">surname:
-                                    <input type="text" class="my-form-control " surname="surname"
+                                <label for="surname" class="my-label text-start">surname:
+                                    <input id="surname" type="text" class="my-form-control " name="surname"
                                         v-model="newEnemy.surname">
                                 </label>
 
+                                <label for="timer" class="my-label text-start">death timer:
+                                    <input id="timer" type="number" class="my-form-control " name="death-timer"
+                                        v-model="newEnemy.deathTimer">
+                                </label>
+
+                                <label for="type" class="my-label text-start">death type:
+                                    <input id="type" type="text" class="my-form-control" name="death-type"
+                                        v-model="newEnemy.deathType">
+                                </label>
 
                                 <button class="my-btn">Add Victim</button>
 
@@ -78,12 +88,20 @@
                                     <input class="my-form-check-input me-3" type="checkbox" role="switch"
                                         v-model="enemy.done">
 
-                                    <i class="fa-solid fa-check"@click="enemyDoneSwitch(enemy)"></i>
+                                    <i class="fa-solid fa-check" @click="enemyDoneSwitch(enemy)"></i>
                                     <!-- testo -->
-                                    <div class="complete-name flex-fill text-capitalize"
-                                        :class="enemy.done ? 'text-decoration-line-through':''"
-                                        @click="enemyDoneSwitch(enemy)">
-                                        {{`${enemy.name} ${enemy.surname}`}}</div>
+
+                                    <div class="flex-fill">
+
+                                        <div class="complete-name  text-capitalize"
+                                            :class="enemy.done ? 'text-decoration-line-through':''"
+                                            @click="enemyDoneSwitch(enemy)">
+                                            {{`${enemy.name} ${enemy.surname}`}}</div>
+
+                                        <div class="deth-timer deth-type">
+                                            {{ enemy.done ? enemy.deathType: enemy.deathTimer}}</div>
+                                    </div>
+
                                     <!-- cestino -->
                                     <button class="my-btn " @click="deleteEnemyOnBtnClick(i)"><i
                                             class="fa-solid fa-skull-crossbones"></i></button>
