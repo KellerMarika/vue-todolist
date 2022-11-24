@@ -12,12 +12,18 @@
     <title>BLACK LIST</title>
 
 
-    <!-- font-family: 'Roboto', sans-serif; -->
+
+    <!--font-family: 'Special Elite', cursive;  -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+
+
+    <!-- font-family: 'Homemade Apple', cursive; -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
 
     <!-- font-family: fontawesome -->
     <script src="https://kit.fontawesome.com/a19b158346.js" crossorigin="anonymous"></script>
@@ -37,20 +43,28 @@
     <div id="app">
 
         <section>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-6">
+            <div id="main-container"class="container ">
+                <div class="row position-relative">
+                    <img id="death-note-bg" src="img/deathnote.png" class="position-absolute">
+                    <div id="death-note-content" class="col-3 offset-1 ">
                         <!-- intercetta anche enter -->
                         <form action="" @submit.prevent="addNewEnemytoEnemies">
                             <!-- label/legend? -->
-                            <span>who will be your next victim?</span>
-                            <div class="input-group d-flex">
-                                <input type="text" class="form-control" name="name" placeholder="name"
-                                    v-model="newEnemy.name">
+                            <h1 class="fs-3">who will be your next victim?</h1>
 
-                                <input type="text" class="form-control " surname="surname" placeholder="surname "
-                                    v-model="newEnemy.surname">
-                                <button class="btn btn-danger ">Add Victim</button>
+                            <div class="my-input-group text-end">
+                                <label for="name" class="my-label text-start">name:
+                                    <input id="name" type="text" class="my-form-control" name="name"
+                                        v-model="newEnemy.name">
+                                </label>
+
+                                <label for="name" class="my-label text-start">surname:
+                                    <input type="text" class="my-form-control " surname="surname"
+                                        v-model="newEnemy.surname">
+                                </label>
+
+
+                                <button class="my-btn">Add Victim</button>
 
                             </div>
                         </form>
@@ -58,17 +72,20 @@
                         <div id="enemies-list-container">
                             <ul class="enemies list-group">
                                 <!-- ciclo -->
-                                <li class="enemy list-group-item d-flex" v-for="(enemy,i) in enemies">
+                                <li class="enemy my-list-group-item d-flex  bg-transparent"
+                                    v-for="(enemy,i) in enemies">
                                     <!-- done -->
-                                    <input class="form-check-input me-3" type="checkbox" role="switch"
+                                    <input class="my-form-check-input me-3" type="checkbox" role="switch"
                                         v-model="enemy.done">
+
+                                    <i class="fa-solid fa-check"@click="enemyDoneSwitch(enemy)"></i>
                                     <!-- testo -->
-                                    <div  class="complete-name flex-fill text-capitalize"
-                                        :class="enemy.done ? 'text-decoration-line-through':'text-danger'"
+                                    <div class="complete-name flex-fill text-capitalize"
+                                        :class="enemy.done ? 'text-decoration-line-through':''"
                                         @click="enemyDoneSwitch(enemy)">
                                         {{`${enemy.name} ${enemy.surname}`}}</div>
                                     <!-- cestino -->
-                                    <button class="btn btn-sm btn-dark" @click="deleteEnemyOnBtnClick(i)"><i
+                                    <button class="my-btn " @click="deleteEnemyOnBtnClick(i)"><i
                                             class="fa-solid fa-skull-crossbones"></i></button>
                                 </li>
 
@@ -78,7 +95,8 @@
                     </div>
                 </div>
             </div>
-        </section>
+    </div>
+    </section>
 
 
 

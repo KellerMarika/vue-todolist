@@ -1,4 +1,96 @@
-*{
- /*    border:1px solid red;
-    padding: 5px 0; */
+/* * {
+    border: 1px solid red; */
+
+body {
+    font-family: 'Special Elite', cursive;
+    background-image: url(../img/bg1.png);
+    background-repeat: no-repeat;  
+    background-size: cover;  
+}
+input,
+li {
+    font-family: 'Homemade Apple', cursive;
+}
+
+.row {
+    margin-left: -200px;
+    margin-top: 150px;
+    height: 500px;
+}
+
+#main-container {
+    transform: rotate(-10deg);
+}
+
+
+#death-note-bg {
+    position: absolute;
+    z-index: -1;
+    object-fit: contain;
+    left: 0;
+    width: 65%;
+}
+
+#death-note-content {
+    padding-top: 50px;
+
+
+}
+
+.my-input-group {
+    margin-bottom: 10px;
+}
+
+.my-btn {
+    margin-top: 10px;
+    border: none;
+    font-weight: 800;
+    font-size: 1.2rem;
+    transition: color.3s;
+}
+
+.my-btn:hover {
+    text-decoration: underline;
+    color: rgb(180, 12, 12);
+}
+
+.my-label {
+    font-size: 1rem;
+    border-bottom: 1px dashed rgba(95, 91, 79, 0.233);
+    display: block;
+
+
+}
+
+.my-form-control {
+    background: transparent;
+    border: none;
+    margin-left: 20px;
+}
+
+.my-list-group-item {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+}
+
+.my-form-check-input {
+    display: none;
+
+}
+
+.my-form-check-input:checked+i.fa-check {
+    color: rgb(0, 0, 0);
+}
+
+i.fa-check {
+    margin-right: 15px;
+    margin-bottom: 5px;
+    border: 2px solid rgba(95, 91, 79, 0.233);
+    color: transparent;
+    transition: .2s;
+}
+
+i.fa-check:hover {
+    background-color: rgba(24, 24, 23, 0.055);
 }
